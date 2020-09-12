@@ -7,6 +7,16 @@ An app to remind you to take a break for your eyes.
 [asar](https://github.com/electron/asar)
 [Electron](https://github.com/electron/electron/releases/latest)
 
+### File Tree  
+Eye-Reminder app's folder tree should be like:  
+```
+Eye-Reminder
+├── package.json
+├── main.js
+├── index.html
+└── (Other app files and folders like assets)
+```  
+So don't put this repository directly in a folder.
 ### Packaging
 #### Windows  
 1. Install asar `npm i -g asar`.  
