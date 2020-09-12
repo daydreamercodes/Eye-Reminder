@@ -4,7 +4,7 @@ An app to remind you to take a break for your eyes.
 ## Package Yourself
 ### Requirements
 [npm](https://www.npmjs.com/)  
-[asar](https://github.com/electron/asar)
+[asar](https://github.com/electron/asar)  
 [Electron](https://github.com/electron/electron/releases/latest)
 
 ### File Tree  
