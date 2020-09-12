@@ -8,7 +8,7 @@ An app to remind you to take a break for your eyes.
 [Electron](https://github.com/electron/electron/releases/latest)
 
 ### File Tree  
-Eye-Reminder app's folder tree should be like:  
+Eye-Reminder app's file tree should be like:  
 ```
 Eye-Reminder
 ├── package.json
