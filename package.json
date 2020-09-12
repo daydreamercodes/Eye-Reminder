@@ -1,0 +1,14 @@
+{
+  "name": "eyereminder",
+  "version": "1.0.0",
+  "description": "A reminder app to remind you to rest your eyes.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Daydreamer",
+  "license": "ISC",
+  "dependencies": {
+    "humanize-duration": "^3.23.1"
+  }
+}
