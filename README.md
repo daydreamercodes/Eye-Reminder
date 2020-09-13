@@ -35,6 +35,6 @@ So don't put this repository directly in a folder.
 4. Execute Electron.app to start the app.  
   
 See [Electron docs](https://www.electronjs.org/docs/tutorial/application-distribution) for more information.  
-### Known Bugs  
+## Known Bugs  
 1. You must restart the app to restart the countdown.  
 2. Options doesn't work.
