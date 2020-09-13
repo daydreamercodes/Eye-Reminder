@@ -5,7 +5,8 @@ An app to remind you to take a break for your eyes.
 ### Requirements
 [npm](https://www.npmjs.com/)  
 [asar](https://github.com/electron/asar)  
-[Electron](https://github.com/electron/electron/releases/latest)
+[Electron](https://github.com/electron/electron/releases/latest)  
+[humanize-duration](https://www.npmjs.com/package/humanize-duration) (Install it to app's folder with `npm i humanize-duration`)
 
 ### File Tree  
 Eye-Reminder app's file tree should be like:  
