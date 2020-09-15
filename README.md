@@ -4,11 +4,12 @@ An app to remind you to take a break for your eyes.
 ## Package Yourself
 ### Requirements
 [npm](https://www.npmjs.com/)  
-[asar](https://github.com/electron/asar)
-[Electron](https://github.com/electron/electron/releases/latest)
+[asar](https://github.com/electron/asar)  
+[Electron](https://github.com/electron/electron/releases/latest)  
+[humanize-duration](https://www.npmjs.com/package/humanize-duration) (Install it to app's folder with `npm i humanize-duration`)
 
 ### File Tree  
-Eye-Reminder app's folder tree should be like:  
+Eye-Reminder app's file tree should be like:  
 ```
 Eye-Reminder
 ├── package.json
@@ -34,4 +35,7 @@ So don't put this repository directly in a folder.
 3. Put the app.asar file into `electron/Electron.app/Contents/Resources/`.  
 4. Execute Electron.app to start the app.  
   
-See [Electron docs](https://www.electronjs.org/docs/tutorial/application-distribution) for more information.
+See [Electron docs](https://www.electronjs.org/docs/tutorial/application-distribution) for more information.  
+## Known Bugs  
+1. You must restart the app to restart the countdown.  
+2. Options doesn't work.
