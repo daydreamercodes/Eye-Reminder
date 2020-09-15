@@ -43,35 +43,35 @@ function Counter(options) {
 
 var isStarted = 0;
 
-var countdown = new Counter({
-    seconds: 20*60,
-
-    onCounterStart: function () { 
-        isStarted = 1;
-        document.getElementById('startButton').innerHTML = 'Started';
-        document.getElementById('startButton').style.opacity = 0.6;
-        document.getElementById('startButton').style.cursor = 'not-allowed';
-    },
-
-    onUpdateStatus: function(second) {
-        document.getElementById('counter').innerHTML = `${humanizeDuration(second*1000, { delimiter: ' and ' })} remaining for the rest time.`
-    },
-
-    onCounterEnd: function() {
-        const restTimeNotification = new Notification('It\'s rest time', {
-            body: 'Take a break for your eyes',
-            icon: path.join(__dirname, 'assets/icons/win/128x128.ico')
-        })
-        document.getElementById('counter').innerHTML = 'It\'s rest time';
-        document.getElementById('startButton').innerHTML = 'Start';
-        document.getElementById('startButton').style.opacity = 1;
-        document.getElementById('startButton').style.cursor = 'pointer';
-        isStarted = 0;
-    }
-});
-
 function start20Mins() {
     if (isStarted == 0) {
+        var countdown = new Counter({
+            seconds: 2,
+        
+            onCounterStart: function () { 
+                isStarted = 1;
+                document.getElementById('startButton').innerHTML = 'Started';
+                document.getElementById('startButton').style.opacity = 0.6;
+                document.getElementById('startButton').style.cursor = 'not-allowed';
+            },
+        
+            onUpdateStatus: function(second) {
+                document.getElementById('counter').innerHTML = `${humanizeDuration(second*1000, { delimiter: ' and ' })} remaining for the rest time.`
+            },
+        
+            onCounterEnd: function() {
+                const restTimeNotification = new Notification('It\'s rest time', {
+                    body: 'Take a break for your eyes',
+                    icon: path.join(__dirname, 'assets/icons/win/128x128.ico')
+                })
+                document.getElementById('counter').innerHTML = 'It\'s rest time';
+                document.getElementById('startButton').innerHTML = 'Start';
+                document.getElementById('startButton').style.opacity = 1;
+                document.getElementById('startButton').style.cursor = 'pointer';
+                isStarted = 0;
+            }
+        });
+
         countdown.start();
     }
 }
