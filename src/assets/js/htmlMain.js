@@ -46,7 +46,7 @@ var isStarted = 0;
 function start20Mins() {
     if (isStarted == 0) {
         var countdown = new Counter({
-            seconds: 2,
+            seconds: 20*60,
         
             onCounterStart: function () { 
                 isStarted = 1;
