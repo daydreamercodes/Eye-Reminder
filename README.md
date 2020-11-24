@@ -34,4 +34,4 @@ So don't put this repository directly in a folder.
   
 See [Electron docs](https://www.electronjs.org/docs/tutorial/application-distribution) for more information.  
 ## Known Bugs  
-1. Options doesn't work.
+1. Options doesn't work when app is packaged. This bug will be fixed.
