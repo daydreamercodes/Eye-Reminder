@@ -1,8 +1,7 @@
 const { app, Menu, Tray, BrowserWindow } = require('electron')
 const path = require('path')
-const optionsJSON = require(path.join(__dirname, 'options.json'));
 
-app.once('ready', () => {
+app.once('ready', async () => {
   var isClosingWithTrayIcon = 0;
   //Main window
   const mainWin = new BrowserWindow({
@@ -13,11 +12,18 @@ app.once('ready', () => {
     },
     icon: path.join(__dirname, 'assets/icons/win/128x128.ico')
   })
+  
+  var minimizeToTray;
+  mainWin.webContents
+    .executeJavaScript('localStorage.getItem("minimizeToTray");', true)
+    .then(result => {
+      minimizeToTray = result;
+    });
   mainWin.loadFile('index.html')
   mainWin.removeMenu()
   mainWin.setResizable(false)
   mainWin.on('close', (event) => {
-    if (optionsJSON.minimizeToTray == true && isClosingWithTrayIcon == 0) {
+    if (eval(minimizeToTray) === true && isClosingWithTrayIcon === 0) {
       event.preventDefault()
       mainWin.hide()
     } else {

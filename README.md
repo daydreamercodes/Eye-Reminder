@@ -32,6 +32,4 @@ So don't put this repository directly in a folder.
 2. Put the app.asar file into `electron/Electron.app/Contents/Resources/`.  
 3. Execute Electron.app to start the app.  
   
-See [Electron docs](https://www.electronjs.org/docs/tutorial/application-distribution) for more information.  
-## Known Bugs  
-1. Options doesn't work when app is packaged. This bug will be fixed.
+See [Electron docs](https://www.electronjs.org/docs/tutorial/application-distribution) for more information.

@@ -1,7 +1,7 @@
 {
   "name": "eyereminder",
-  "version": "1.0.0",
-  "description": "A reminder app to remind you to rest your eyes.",
+  "version": "1.3",
+  "description": "An app to remind you to take a break for your eyes.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
