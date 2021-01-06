@@ -2,12 +2,12 @@
   "name": "eyereminder",
   "version": "1.2",
   "description": "An app to remind you to take a break for your eyes.",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron ."
   },
   "author": "Daydreamer",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "humanize-duration": "^3.23.1"
   }
