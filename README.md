@@ -1,2 +1,2 @@
-# Eye Reminder
-An app to remind you to take a break for your eyes.
+# d_Eye
+d_Eye is an eye reminder app.

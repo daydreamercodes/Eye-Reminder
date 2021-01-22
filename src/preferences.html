@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-    <title>d_Eye</title>
+    <title>Preferences</title>
 
     <link rel="stylesheet" href="assets/stylesheets/main.css">
     <script src="assets/scripts/titlebar.js"></script>
-    <script src="assets/scripts/renderer.js"></script>
+    <script src="assets/scripts/preferences.js"></script>
 </head>
 <body>
     <div id="windowWrapper">
         <div id="titlebar">
-            <img src="assets/icons/preferences.png" alt="Preferences" id="preferencesButton">
             <img src="assets/icons/minimize.png" alt="Minimize" id="minimizeButton">
             <img src="assets/icons/close.png" alt="Close" id="closeButton">
         </div>
         <div id="app">
-            <h2>d_Eye</h2>
-            <button id="startButton">Start</button>
-            <p id="status"></p>
+            <h2>Preferences</h2>
+            <h3>Notifications</h3>
+            <button id="sendNotificationToggle">Send notification: On</button>
+            <button id="playSoundToggle">Play sound: On</button>
+            <h3>Screen time</h3>
+            Screen time (minutes):<br>
+            <input type="number" name="Screen Time" id="screenTime" min="1">
+            <button id="setButton">Set time</button>
         </div>
     </div>
-    <audio src="assets/sounds/ring.wav" id="ring"></audio>
 </body>
 </html>

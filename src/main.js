@@ -1,72 +1,139 @@
-const { app, Menu, Tray, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, Tray, Menu, ipcMain, shell } = require('electron'),
+      { BrowserWindow } = require('glasstron'),
+      path = require('path'),
+      electronStore = require('electron-store'),
+      store = new electronStore();
 
-app.once('ready', async () => {
-  var isClosingWithTrayIcon = 0;
-  //Main window
-  const mainWin = new BrowserWindow({
-    width: 400,
-    height: 400,
-    webPreferences: {
-      nodeIntegration: true
-    },
-    icon: path.join(__dirname, 'assets/icons/win/128x128.ico')
-  })
-  
-  var minimizeToTray;
-  mainWin.webContents
-    .executeJavaScript('localStorage.getItem("minimizeToTray");', true)
-    .then(result => {
-      minimizeToTray = result;
-    });
-  mainWin.loadFile('index.html')
-  mainWin.removeMenu()
-  mainWin.setResizable(false)
-  mainWin.on('close', (event) => {
-    if (eval(minimizeToTray) === true && isClosingWithTrayIcon === 0) {
-      event.preventDefault()
-      mainWin.hide()
-    } else {
-      mainWin.destroy()
-      optionsWin.destroy()
-      app.isQuiting = true
-      app.quit()
-    }
-  })
-  //Options window
-  const optionsWin = new BrowserWindow({
-    width: 400,
-    height: 400,
-    webPreferences: {
-      nodeIntegration: true
-    },
-    icon: path.join(__dirname, 'assets/icons/win/128x128.ico')
-  })
-  optionsWin.loadFile('options.html')
-  optionsWin.removeMenu()
-  optionsWin.setResizable(false)
-  optionsWin.hide()
-  optionsWin.on('close', (event) => {
-    if (isClosingWithTrayIcon == 0) {
-      event.preventDefault()
-      optionsWin.hide()
-    }
-  })
+app.commandLine.appendSwitch('enable-transparent-visuals');
 
-  //Tray icon
-  appTray = new Tray(path.join(__dirname, 'assets/icons/win/128x128.ico'))
-  const contextMenu = Menu.buildFromTemplate([
-    { label: 'Options', click: function() {
-      optionsWin.show()
-    } },
-    { label: 'Quit', click:  function() {
-        app.isQuiting = true
-        isClosingWithTrayIcon = 1;
-        app.quit()
-    } }
-  ])
-  appTray.setContextMenu(contextMenu)
-  appTray.on('click', () => {
-    mainWin.show()
-  })
-})
+var isClosingWithTrayIcon = false;
+
+app.whenReady().then(() => {
+    if (store.get('preferences.sendNotification') == undefined) {
+        store.set('preferences.sendNotification', true);
+    };
+    if (store.get('preferences.playSound') == undefined) {
+        store.set('preferences.playSound', true);
+    };
+    if (store.get('preferences.screenTime') == undefined) {
+        store.set('preferences.screenTime', 20);
+    };
+    setTimeout(() => {
+        const mainWin = new BrowserWindow({
+            width: 400,
+            height: 400,
+            frame: false,
+            transparent: true,
+            resizable: false,
+            blurType: 'blurbehind',
+            icon: path.join(__dirname, 'assets/icons/icon.png'),
+            webPreferences: {
+                enableRemoteModule: true,
+                contextIsolation: true,
+                preload: path.join(__dirname, 'assets/scripts/preload.js')
+            }
+        }),
+        preferencesWin = new BrowserWindow({
+            width: 400,
+                height: 400,
+                frame: false,
+                transparent: true,
+                resizable: false,
+                blurType: 'blurbehind',
+                icon: path.join(__dirname, 'assets/icons/icon.png'),
+                webPreferences: {
+                    enableRemoteModule: true,
+                    contextIsolation: true,
+                    preload: path.join(__dirname, 'assets/scripts/preload.js')
+                },
+                show: false
+        }),
+        aboutWin = new BrowserWindow({
+            width: 400,
+            height: 400,
+            frame: false,
+            transparent: true,
+            resizable: false,
+            blurType: 'blurbehind',
+            icon: path.join(__dirname, 'assets/icons/icon.png'),
+            webPreferences: {
+                enableRemoteModule: true,
+                contextIsolation: true,
+                preload: path.join(__dirname, 'assets/scripts/preload.js')
+            },
+            show: false
+        });
+    
+        mainWin.loadFile(path.join(__dirname, 'index.html'));
+        mainWin.setBlur(true);
+
+        preferencesWin.loadFile(path.join(__dirname, 'preferences.html'));
+        preferencesWin.setBlur(true);
+
+        aboutWin.loadFile(path.join(__dirname, 'about.html'));
+        aboutWin.setBlur(true);
+
+        ipcMain.on('showPreferences', (s) => {
+            preferencesWin.show();
+        });
+
+        mainWin.on('close', event => {
+            if (!isClosingWithTrayIcon) {
+                event.preventDefault();
+                mainWin.hide();
+            };
+        });
+    
+        preferencesWin.on('close', event => {
+            if (!isClosingWithTrayIcon) {
+                event.preventDefault();
+                preferencesWin.hide();
+            };
+        });
+
+        aboutWin.on('close', event => {
+            if (!isClosingWithTrayIcon) {
+                event.preventDefault();
+                aboutWin.hide();
+            };
+        });
+
+        aboutWin.webContents.on('new-window', (e, url) => {
+            e.preventDefault();
+            shell.openExternal(url);
+        });
+
+        tray = new Tray(path.join(__dirname, 'assets/icons/icon.png'));
+        tray.setToolTip('d_Eye');
+        tray.on('click', () => {
+            mainWin.show();
+        });
+        tray.setContextMenu(Menu.buildFromTemplate([
+            {
+                label: 'Show d_Eye',
+                click: () => {
+                    mainWin.show();
+                }
+            },
+            {
+                label: 'Preferences',
+                click: () => {
+                    preferencesWin.show();
+                }
+            },
+            {
+                label: 'About',
+                click: () => {
+                    aboutWin.show();
+                }
+            },
+            {
+                label: 'Exit',
+                click: () => {
+                    isClosingWithTrayIcon = true;
+                    app.quit();
+                }
+            }
+        ]));
+    }, process.platform == 'linux' ? 1000 : 0);
+});

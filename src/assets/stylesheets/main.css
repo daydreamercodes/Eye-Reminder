@@ -1,0 +1,115 @@
+body {
+    background: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#app {
+    color: #fff;
+}
+
+#app > * {
+    outline: none;
+}
+
+#windowWrapper {
+    background: rgba(255, 255, 255, 0.300);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+#titlebar {
+    position: fixed;
+    background: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    font-size: 0;
+    text-align: right;
+}
+
+#titlebar > img {
+    top: 0;
+    right: 0;
+    width: 20px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    -webkit-app-region: no-drag;
+    -webkit-user-drag: none;
+}
+
+#titlebar > img:hover {
+    background: rgba(255, 255, 255, 0.300);
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background: transparent;
+    font-size: 14px;
+    border: 2px solid rgb(0, 204, 255);
+    border-radius: 20px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    padding: 8px 12px 8px 12px;
+    -webkit-app-region: no-drag;
+}
+
+button:hover {
+    background: rgb(0, 204, 255);
+}
+
+input {
+    background: rgba(255, 255, 255, 0.300);
+    border: none;
+    border-radius: 12px;
+    padding: 4px 8px 4px 8px;
+    transition-duration: 0.3s;
+    -webkit-app-region: no-drag;
+}
+
+input:hover {
+    background: rgba(255, 255, 255, 0.400);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+a {
+    color: rgb(178, 157, 255) !important;
+    text-decoration: none;
+    transition-duration: 0.1s;
+    -webkit-app-region: no-drag;
+}
+
+a:hover {
+    border-bottom: 2px dotted rgb(178, 157, 255);
+}
+
+.aboutPage {
+    font-size: smaller;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    #windowWrapper {
+        background: rgba(0, 0, 0, 0.300);
+    }
+
+    #app > * {
+        color: white;
+    }
+
+    #titlebar > img {
+        filter: invert();
+    }
+}
