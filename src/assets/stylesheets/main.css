@@ -4,10 +4,11 @@ body {
 }
 
 #app {
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 
 #app > * {
+    color: rgb(0, 0, 0);
     outline: none;
 }
 
@@ -86,7 +87,7 @@ input::-webkit-inner-spin-button {
 }
 
 a {
-    color: rgb(178, 157, 255) !important;
+    color: rgb(102, 60, 255) !important;
     text-decoration: none;
     transition-duration: 0.1s;
     -webkit-app-region: no-drag;
@@ -105,11 +106,16 @@ a:hover {
         background: rgba(0, 0, 0, 0.300);
     }
 
+    #app, 
     #app > * {
         color: white;
     }
 
     #titlebar > img {
         filter: invert();
+    }
+
+    a {
+        color: rgb(146, 116, 255) !important;
     }
 }
