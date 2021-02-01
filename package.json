@@ -1,12 +1,15 @@
 {
   "name": "d_eye",
   "productName": "d_Eye",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An app to remind you to take a break for your eyes.",
   "main": "src/main.js",
   "scripts": {
     "start": "electron src/main.js",
-    "build": "electron-builder -w"
+    "build": "electron-builder -wml",
+    "build-linux": "electron-builder -l",
+    "build-windows": "electron-builder -w",
+    "build-mac": "electron-builder -m"
   },
   "build": {
     "win": {
@@ -15,12 +18,21 @@
     },
     "linux": {
       "icon": "src/assets/icons/icon.png",
-      "target": "deb"
+      "target": ["deb", "tar.gz"],
+      "category": "Utility"
+    },
+    "mac": {
+      "icon": "src/assets/icons/icon.png",
+      "target": "tar.gz",
+      "category": "public.app-category.utilities"
     },
     "appId": "com.daydreamercodes.eyereminder",
-    "copyright": "Copyright © 2021 ${author}"
+    "copyright": "Copyright © 2021 ${author.name}"
   },
-  "author": "Daydreamer",
+  "author": {
+    "name": "Daydreamer",
+    "email": "51serhatsivrikaya@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "electron-store": "^6.0.1",
