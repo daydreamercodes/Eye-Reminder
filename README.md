@@ -27,7 +27,7 @@ d_Eye is an eye reminder app.
 - [Git](https://git-scm.com) (Optional)
 
 ### Building
-1. Clone the repository with `https://github.com/daydreamercodes/d_Eye.git` if you have Git installed or download ZIP and extract.
+1. Clone the repository with `git clone https://github.com/daydreamercodes/d_Eye.git` if you have Git installed or download ZIP and extract.
 2. Open a command line in the source folder and install dependencies with `npm i`.
 3. 
 - For Linux: `npm run build-linux`
@@ -35,6 +35,6 @@ d_Eye is an eye reminder app.
 - For macOS: `npm run build-mac`
 
 ### Running from source without building
-1. Clone the repository with `https://github.com/daydreamercodes/d_Eye.git` if you have Git installed or download ZIP and extract.
+1. Clone the repository with `git clone https://github.com/daydreamercodes/d_Eye.git` if you have Git installed or download ZIP and extract.
 2. Open a command line in the source folder and install dependencies with `npm i`.
 3. Run d_Eye with `npm run start`.
