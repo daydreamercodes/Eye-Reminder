@@ -24,14 +24,14 @@ window.addEventListener('DOMContentLoaded', () => {
                         new Notification('It\'s rest time', {
                             body: 'Take a break'
                         });
-                    };
+                    }
                     if (window.store.get('preferences.playSound')) {
                         document.getElementById('ring').play();
-                    };
+                    }
                     return;
-                };
+                }
                 status.innerHTML = window.scripts.humanize(time*1000-passed*1000);
             }, 1000);
-        };
+        }
     });
 });

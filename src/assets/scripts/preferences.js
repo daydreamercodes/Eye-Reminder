@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else if (screenTime > 1440) {
             alert('Wait, what? This is not healthy.');
             return document.getElementById('screenTime').value = window.store.get('preferences.screenTime');
-        };            
+        }
         window.store.set('preferences.screenTime', screenTime);
     });
 
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             document.getElementById('sendNotificationToggle').innerHTML = 'Send notification: On';
             window.store.set('preferences.sendNotification', true);
-        };
+        }
     });
 
     document.getElementById('playSoundToggle').addEventListener('click', () => {
@@ -37,6 +37,6 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             document.getElementById('playSoundToggle').innerHTML = 'Play sound: On';
             window.store.set('preferences.playSound', true);
-        };
+        }
     });
 });

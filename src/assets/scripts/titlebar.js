@@ -12,5 +12,5 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById('preferencesButton').addEventListener('click', () => {
             window.scripts.ipcSend('showPreferences', true);
         });
-    };
+    }
 });
