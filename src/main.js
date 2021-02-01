@@ -5,19 +5,21 @@ const { app, Tray, Menu, ipcMain, shell } = require('electron'),
       store = new electronStore();
 
 app.commandLine.appendSwitch('enable-transparent-visuals');
+app.commandLine.appendSwitch('disable-gpu');
+app.setAppUserModelId(process.execPath);
 
 var isClosingWithTrayIcon = false;
 
 app.whenReady().then(() => {
     if (store.get('preferences.sendNotification') == undefined) {
         store.set('preferences.sendNotification', true);
-    };
+    }
     if (store.get('preferences.playSound') == undefined) {
         store.set('preferences.playSound', true);
-    };
+    }
     if (store.get('preferences.screenTime') == undefined) {
         store.set('preferences.screenTime', 20);
-    };
+    }
     setTimeout(() => {
         const mainWin = new BrowserWindow({
             width: 400,
@@ -81,21 +83,21 @@ app.whenReady().then(() => {
             if (!isClosingWithTrayIcon) {
                 event.preventDefault();
                 mainWin.hide();
-            };
+            }
         });
     
         preferencesWin.on('close', event => {
             if (!isClosingWithTrayIcon) {
                 event.preventDefault();
                 preferencesWin.hide();
-            };
+            }
         });
 
         aboutWin.on('close', event => {
             if (!isClosingWithTrayIcon) {
                 event.preventDefault();
                 aboutWin.hide();
-            };
+            }
         });
 
         aboutWin.webContents.on('new-window', (e, url) => {
