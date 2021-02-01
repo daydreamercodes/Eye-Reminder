@@ -2,7 +2,7 @@
   "name": "d_eye",
   "productName": "d_Eye",
   "version": "2.0.2",
-  "description": "An app to remind you to take a break for your eyes.",
+  "description": "An app to remind you to take breaks for your eyes.",
   "main": "src/main.js",
   "scripts": {
     "start": "electron src/main.js",
@@ -27,7 +27,7 @@
       "category": "public.app-category.utilities"
     },
     "appId": "com.daydreamercodes.eyereminder",
-    "copyright": "Copyright © 2021 ${author.name}"
+    "copyright": "Copyright © 2021 ${author}"
   },
   "author": {
     "name": "Daydreamer",
