@@ -16,7 +16,7 @@ d_Eye is an eye reminder app.
 - Auto updater
 
 ## Installers
-| [Linux x64 (Debian)](hhttps://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_eye_2.0.3.deb) | [Linux x64 (tar.gz)](https://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_eye-2.0.3.tar.gz) | [Windows x64](https://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_Eye-Setup-2.0.3.exe) | [Mac x64 (tar.gz)](https://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_Eye-2.0.3-mac.tar.gz) |
+| [Linux x64 (Debian)](https://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_eye_2.0.3.deb) | [Linux x64 (tar.gz)](https://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_eye-2.0.3.tar.gz) | [Windows x64](https://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_Eye-Setup-2.0.3.exe) | [Mac x64 (tar.gz)](https://github.com/daydreamercodes/d_Eye/releases/download/v2.0.3/d_Eye-2.0.3-mac.tar.gz) |
 | --- | --- | --- | --- |
 
 ## Building from source
