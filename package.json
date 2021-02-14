@@ -1,8 +1,18 @@
 {
   "name": "d_eye",
   "productName": "d_Eye",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "An app to remind you to take breaks for your eyes.",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/daydreamercodes/d_Eye.git"
+  },
+  "homepage": "https://github.com/daydreamercodes/d_Eye#readme",
+  "keywords": [
+    "eye",
+    "reminder",
+    "eye-reminder"
+  ],
   "main": "src/main.js",
   "scripts": {
     "start": "electron src/main.js",
@@ -17,8 +27,11 @@
       "target": "nsis"
     },
     "linux": {
-      "icon": "src/assets/icons/icon.png",
-      "target": ["deb", "tar.gz"],
+      "icon": "src/assets/icons",
+      "target": [
+        "deb",
+        "tar.gz"
+      ],
       "category": "Utility"
     },
     "mac": {
